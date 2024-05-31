@@ -1,12 +1,10 @@
-const express = require("express");
-const fetch = require("node-fetch");
-const app = express();
-const port = process.env.PORT || 3000;
+import fetch from "node-fetch";
 
-app.get("/api/proxy", async (req, res) => {
+export default async function handler(req, res) {
   try {
     const apiUrl = "http://test.api.boxigo.in/sample-data/";
     const response = await fetch(apiUrl);
+    console.log(response);
     const contentType = response.headers.get("content-type");
 
     if (contentType && contentType.includes("application/json")) {
@@ -19,8 +17,4 @@ app.get("/api/proxy", async (req, res) => {
     console.error("Fetch error:", error);
     res.status(500).send("Error: Unable to fetch data from API");
   }
-});
-
-app.listen(port, () => {
-  console.log(`Proxy server is running on port ${port}`);
-});
+}

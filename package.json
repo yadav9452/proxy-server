@@ -2,7 +2,8 @@
   "name": "myproxy-server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.mjs",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.19.2",
-    "node-fetch": "^3.3.2"
+    "node-fetch": "^3.3.2",
+    "nodemon": "^3.1.2"
   }
 }
